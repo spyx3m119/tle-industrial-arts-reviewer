@@ -1,0 +1,45 @@
+import type { Question } from '../types';
+
+// ============================================================
+//  PLUMBING
+// ============================================================
+
+const multiple: Question[] = [
+  { id: 'p_mc_pvc', type: 'multiple', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'A common plastic pipe used for drainage and water supply is ____.', options: ['PVC pipe', 'Glass pipe', 'Paper pipe', 'Wood pipe'], answer: 0, explanation: 'PVC (polyvinyl chloride) is a common plastic pipe.' },
+  { id: 'p_mc_gi', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'GI pipe, commonly used in older water lines, stands for ____.', options: ['Galvanized Iron', 'Golden Iron', 'General Industrial', 'Grounded Input'], answer: 0, explanation: 'GI = Galvanized Iron pipe (steel coated with zinc).' },
+  { id: 'p_mc_copper', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'Which metal pipe is often used for water supply and joined by soldering?', options: ['Copper pipe', 'Paper pipe', 'Clay pipe', 'Plastic straw'], answer: 0, explanation: 'Copper pipe is durable and joined by soldering (sweat).' },
+  { id: 'p_mc_elbow', type: 'multiple', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'A fitting used to CHANGE the direction of a pipe is an ____.', options: ['Elbow', 'Coupling', 'Union', 'Nipple'], answer: 0, explanation: 'An elbow changes the direction of the pipe (often 45° or 90°).' },
+  { id: 'p_mc_tee', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'A T-shaped fitting that splits one line into two is a ____.', options: ['Tee', 'Elbow', 'Coupling', 'Cap'], answer: 0, explanation: 'A tee (T) connects three pipes and branches the line.' },
+  { id: 'p_mc_coupling', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'A fitting used to connect two pipes in a straight line is a ____.', options: ['Coupling', 'Elbow', 'Tee', 'Valve'], answer: 0, explanation: 'A coupling joins two pipes end to end.' },
+  { id: 'p_mc_union', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 3, stem: 'A fitting that lets you disconnect a pipe easily for maintenance is a ____.', options: ['Union', 'Weld', 'Glue joint', 'Solder joint'], answer: 0, explanation: 'A union can be unscrewed for removal.' },
+  { id: 'p_mc_cap', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'A fitting that closes the END of a pipe is a ____.', options: ['Cap (or plug)', 'Elbow', 'Tee', 'Coupling'], answer: 0, explanation: 'A cap closes the end; a plug closes an opening.' },
+  { id: 'p_mc_valve', type: 'multiple', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'A device used to control (start/stop) the flow of water in a pipe is a ____.', options: ['Valve', 'Elbow', 'Coupling', 'Nipple'], answer: 0, explanation: 'A valve controls the flow of water.' },
+  { id: 'p_mc_ball_valve', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 3, stem: 'A valve that uses a quarter-turn of a ball to open or close quickly is a ____.', options: ['Ball valve', 'Check valve only', 'Gate valve', 'Pressure gauge'], answer: 0, explanation: 'A ball valve opens/closes with a 90° turn.' },
+  { id: 'p_mc_check_valve', type: 'multiple', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'A valve that allows water to flow in only ONE direction is a ____.', options: ['Check valve', 'Gate valve', 'Ball valve', 'Angle valve'], answer: 0, explanation: 'A check valve prevents backflow.' },
+  { id: 'p_mc_trap', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'The U-shaped pipe under a sink that holds water to stop sewer gas is a ____.', options: ['Trap (P-trap)', 'Valve', 'Elbow', 'Tank'], answer: 0, explanation: 'A trap holds water to block sewer gases from coming back up.' },
+  { id: 'p_mc_teflon', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'When making a threaded pipe joint, you wrap the threads with ____ to seal it.', options: ['PTFE (Teflon) tape', 'Duct tape', 'Masking tape', 'Cotton'], answer: 0, explanation: 'PTFE/Teflon tape seals and lubricates threaded joints.' },
+  { id: 'p_mc_pipe_wrench', type: 'multiple', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'Which tool is used to grip and turn pipes and fittings?', options: ['Pipe wrench (Stillson)', 'Screwdriver', 'Hammer', 'Chisel'], answer: 0, explanation: 'A pipe wrench grips and turns pipes.' },
+  { id: 'p_mc_tube_cutter', type: 'multiple', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'Which tool makes a clean, round cut on a copper or plastic tube?', options: ['Tube (pipe) cutter', 'Hammer', 'Chisel', 'Saw only'], answer: 0, explanation: 'A tube cutter gives a clean, square cut.' },
+  { id: 'p_mc_pvc_cement', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'PVC pipes are usually joined with ____.', options: ['Solvent cement (glue) and primer', 'Solder', 'Nails', 'Staples'], answer: 0, explanation: 'PVC is bonded with primer and solvent cement.' },
+  { id: 'p_mc_solder_copper', type: 'multiple', grades: [9, 10, 11], topic: 'plumbing', difficulty: 3, stem: 'Copper pipes are commonly joined by ____.', options: ['Soldering (sweating)', 'Gluing with PVC cement', 'Stapling', 'Nailing'], answer: 0, explanation: 'Copper is joined by soldering with a torch.' },
+  { id: 'p_mc_slope', type: 'multiple', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'Drainage pipes must be installed with a slight ____ so water flows.', options: ['Slope (fall) downhill', 'Flat, perfectly level', 'Slope uphill', 'Random angle'], answer: 0, explanation: 'Drains slope downhill so waste and water flow out.' },
+  { id: 'p_mc_dwv', type: 'multiple', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'In plumbing, "DWV" stands for ____.', options: ['Drain, Waste, and Vent', 'Direct Water Valve', 'Double Wall Vent', 'Drain Water Varnish'], answer: 0, explanation: 'DWV = Drain, Waste, Vent system.' },
+  { id: 'p_mc_reducer', type: 'multiple', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'A fitting that connects a larger pipe to a smaller one is a ____.', options: ['Reducer', 'Elbow', 'Tee', 'Union'], answer: 0, explanation: 'A reducer steps down pipe size.' },
+];
+
+const truefalse: Question[] = [
+  { id: 'p_tf_shut_off', type: 'truefalse', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'Before repairing a water pipe, you should turn off the main water supply.', answer: true, explanation: 'Turning off the water prevents flooding.' },
+  { id: 'p_tf_trap', type: 'truefalse', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'The trap under a sink holds water to stop sewer gas from entering the room.', answer: true, explanation: 'The water seal in the trap blocks gas.' },
+  { id: 'p_tf_copper_solder', type: 'truefalse', grades: [9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'Copper pipes can be joined with solder and a torch.', answer: true, explanation: 'Soldering (sweating) joins copper pipe.' },
+  { id: 'p_tf_pvc_glue', type: 'truefalse', grades: [9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'PVC pipes are glued with solvent cement, not soldered.', answer: true, explanation: 'PVC uses primer and solvent cement.' },
+  { id: 'p_tf_drain_slope', type: 'truefalse', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'Drain pipes should be perfectly flat with no slope.', answer: false, explanation: 'Drains need a slight slope so water flows.' },
+  { id: 'p_tf_leak', type: 'truefalse', grades: [7, 8, 9, 10, 11], topic: 'plumbing', difficulty: 1, stem: 'A leaking faucet should be repaired promptly to save water.', answer: true, explanation: 'Fixing leaks saves water and money.' },
+  { id: 'p_tf_gloves', type: 'truefalse', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'Wearing gloves is wise when working with pipes and dirty water.', answer: true, explanation: 'Gloves protect your hands from dirt and chemicals.' },
+  { id: 'p_tf_thread_dir', type: 'truefalse', grades: [10, 11], topic: 'plumbing', difficulty: 3, stem: 'Most pipe fittings tighten by turning clockwise ("righty-tighty").', answer: true, explanation: 'Standard threads tighten clockwise.' },
+];
+
+const matching: Question[] = [
+  { id: 'p_match_fitting', type: 'matching', grades: [8, 9, 10, 11], topic: 'plumbing', difficulty: 2, stem: 'Match each fitting to what it does.', pairs: [ { a: 'Elbow', b: 'Changes pipe direction' }, { a: 'Tee', b: 'Branches the line into two' }, { a: 'Coupling', b: 'Joins two pipes straight' }, { a: 'Cap', b: 'Closes the pipe end' }, { a: 'Valve', b: 'Controls water flow' } ], explanation: 'Each fitting has a specific function.' },
+];
+
+export const plumbingQuestions: Question[] = [...multiple, ...truefalse, ...matching];
