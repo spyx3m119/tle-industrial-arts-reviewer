@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Session, Answer } from '../lib/quiz';
 import { ToolIcon } from './ToolIcon';
+import { TOOL_INFO } from '../data/toolInfo';
 
 interface QuizProps {
   session: Session;
@@ -84,6 +85,26 @@ export function Quiz({ session, index, answer, onSubmit, onNext }: QuizProps) {
           <div className={`feedback ${isCorrect ? 'good' : 'bad'}`}>
             <div className="feedback-head">{isCorrect ? 'Correct! 🎉' : 'Not quite'}</div>
             {q.explanation && <p>{q.explanation}</p>}
+            {q.type === 'picture' && pictureId && TOOL_INFO[pictureId] && (
+              <div className="tool-info">
+                <div className="tool-info-row">
+                  <span className="tool-info-label">Purpose</span>
+                  <span className="tool-info-value">{TOOL_INFO[pictureId].purpose}</span>
+                </div>
+                {TOOL_INFO[pictureId].commonName && (
+                  <div className="tool-info-row">
+                    <span className="tool-info-label">Common name</span>
+                    <span className="tool-info-value">{TOOL_INFO[pictureId].commonName}</span>
+                  </div>
+                )}
+                {TOOL_INFO[pictureId].localName && (
+                  <div className="tool-info-row">
+                    <span className="tool-info-label">Local (Tagalog) name</span>
+                    <span className="tool-info-value">{TOOL_INFO[pictureId].localName}</span>
+                  </div>
+                )}
+              </div>
+            )}
             <button className="btn primary" onClick={onNext}>
               {index + 1 >= totalItems ? 'See Results' : 'Next →'}
             </button>
