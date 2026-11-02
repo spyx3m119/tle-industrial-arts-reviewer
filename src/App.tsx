@@ -63,7 +63,7 @@ export default function App() {
   );
 
   const gradeTotal = useMemo(
-    () => ALL_QUESTIONS.filter((q) => q.grades.includes(grade)).length,
+    () => (grade === 'all' ? ALL_QUESTIONS.length : ALL_QUESTIONS.filter((q) => q.grades.includes(grade)).length),
     [grade],
   );
 
@@ -143,7 +143,7 @@ export default function App() {
         <header className="topbar">
           <button className="btn ghost small" onClick={() => setScreen('home')}>← Grades</button>
           <div className="topbar-grade">
-            <span className="grade-chip">{grade}</span>
+            <span className="grade-chip">{grade === 'all' ? 'All' : grade}</span>
             <span>{GRADE_LABEL[grade]}</span>
           </div>
         </header>
@@ -179,7 +179,7 @@ export default function App() {
                 <span className="topic-emoji">{t.emoji}</span>
                 <span className="topic-label">{t.label}</span>
                 <span className="topic-short">{t.short}</span>
-                <span className="topic-count">{empty ? 'Not yet for Grade ' + grade : n + ' questions'}</span>
+                <span className="topic-count">{empty ? 'Not yet available' : n + ' questions'}</span>
               </button>
             );
           })}
@@ -206,7 +206,7 @@ export default function App() {
           <button className="btn ghost small" onClick={() => setScreen('topics')}>✕ Quit</button>
           <div className="topbar-grade">
             <span className="grade-chip">{item && item.kind === 'mc' ? item.data.q.topic : session.topic}</span>
-            <span>Grade {grade}</span>
+            <span>Grade {grade === 'all' ? '7–11' : grade}</span>
           </div>
         </header>
         <ErrorBoundary>

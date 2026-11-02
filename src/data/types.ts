@@ -2,7 +2,7 @@
 //  Data model for the TLE Industrial Arts Reviewer
 // ============================================================
 
-export type Grade = 7 | 8 | 9 | 10 | 11;
+export type Grade = 7 | 8 | 9 | 10 | 11 | 'all';
 
 export type TopicKey =
   | 'tools'
@@ -156,7 +156,7 @@ export const TOPIC_BY_KEY: Record<TopicKey, TopicMeta> = Object.fromEntries(
   TOPICS.map((t) => [t.key, t]),
 ) as Record<TopicKey, TopicMeta>;
 
-export const GRADES: Grade[] = [7, 8, 9, 10, 11];
+export const GRADES: Grade[] = [7, 8, 9, 10, 11, 'all'];
 
 export const GRADE_LABEL: Record<Grade, string> = {
   7: 'Grade 7 — Exploratory',
@@ -164,4 +164,5 @@ export const GRADE_LABEL: Record<Grade, string> = {
   9: 'Grade 9 — Technical',
   10: 'Grade 10 — Technical',
   11: 'Grade 11 — TVL Specialization',
+  all: 'All (Grade 7–11)',
 };

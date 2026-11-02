@@ -59,7 +59,7 @@ export function buildQuiz(
 ): Session {
   const pool0 =
     topic === 'all'
-      ? ALL_QUESTIONS.filter((q) => q.grades.includes(grade))
+      ? (grade === 'all' ? ALL_QUESTIONS : ALL_QUESTIONS.filter((q) => q.grades.includes(grade)))
       : questionsFor(grade, topic);
   let pool = pool0.filter((q) => {
     if (mode === 'mixed') return true;

@@ -54,7 +54,7 @@ export const QUESTIONS_BY_TOPIC: Record<TopicKey, Question[]> = {
 };
 
 export function questionsFor(grade: Grade, topic: TopicKey): Question[] {
-  return ALL_QUESTIONS.filter((q) => q.topic === topic && q.grades.includes(grade));
+  return ALL_QUESTIONS.filter((q) => q.topic === topic && (grade === 'all' || q.grades.includes(grade)));
 }
 
 export function countFor(grade: Grade, topic: TopicKey, typeFilter?: Question['type']): number {
