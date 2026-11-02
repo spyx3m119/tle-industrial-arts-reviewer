@@ -23,7 +23,7 @@ export const TOOL_INFO: Record<string, ToolInfo> = {
   flat_screwdriver: { purpose: 'Turns slotted (flat) screws.', commonName: 'Flathead, slotted screwdriver', localName: 'Turnilyo na patag' },
   fuse: { purpose: 'Protects a circuit from overload by melting to break the circuit.', commonName: 'Cartridge fuse, electrical fuse', localName: 'Fuse / pangprotekta' },
   hack_saw: { purpose: 'Cuts metal using a thin, fine-toothed blade.', commonName: 'Hacksaw', localName: 'Lagari ng bakal' },
-  hand_plane: { purpose: 'Smooths and shaves wood surfaces.', commonName: 'Bench plane, hand plane', localName: 'Plano' },
+  hand_plane: { purpose: 'Smooths and shaves wood surfaces.', commonName: 'Bench plane, hand plane', localName: 'Katam' },
   hand_saw: { purpose: 'Cuts wood by hand.', commonName: 'Hand saw, panel saw', localName: 'Lagari / sero' },
   hatchet: { purpose: 'Chops small wood and splits kindling.', commonName: 'Hatchet, hand axe', localName: 'Palakol (maliit)' },
   lamp_holder: { purpose: 'Holds a light bulb and connects it to power.', commonName: 'Lamp socket, bulb holder', localName: 'Saksakan ng bombilya' },

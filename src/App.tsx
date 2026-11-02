@@ -68,7 +68,8 @@ export default function App() {
   );
 
   function startQuiz(g: Grade, t: TopicKey | 'all', mode: QuizMode) {
-    const s = buildQuiz(g, t, mode, QUESTIONS_PER_QUIZ);
+    const count = mode === 'picture' ? Infinity : QUESTIONS_PER_QUIZ;
+    const s = buildQuiz(g, t, mode, count);
     setSession(s);
     setIndex(0);
     setAnswers(new Array(s.items.length).fill(null));
